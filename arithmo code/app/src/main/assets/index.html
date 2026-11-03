@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7faff">
+  <title>Arithmo — Mental Math</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<main class="app-shell">
+  <header class="topbar">
+    <button class="back-btn hidden" id="backBtn" aria-label="Go back">‹</button>
+    <h1 class="brand">Arithmo</h1>
+    <button class="more-btn" id="menuBtn" aria-label="Open settings">⋮</button>
+  </header>
+
+  <section class="screen active" id="homeScreen">
+    <h2 class="section-heading">Select Difficulty</h2>
+    <div class="difficulty-list">
+      <button class="difficulty-card easy" data-level="1">
+        <span class="difficulty-icon">⌁</span><span><strong>Easy</strong><small>Build your basics</small></span><span class="chevron">›</span>
+      </button>
+      <button class="difficulty-card medium" data-level="2">
+        <span class="difficulty-icon">▥</span><span><strong>Medium</strong><small>Challenge yourself</small></span><span class="chevron">›</span>
+      </button>
+      <button class="difficulty-card hard" data-level="3">
+        <span class="difficulty-icon">♨</span><span><strong>Hard</strong><small>Push your limits</small></span><span class="chevron">›</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="screen" id="operationsScreen">
+    <h2 class="section-heading">Select Operations</h2>
+    <div class="operation-list">
+      <button class="operation-card" data-op="+"><span class="op-icon blue">+</span><span>Addition</span><span class="radio"></span></button>
+      <button class="operation-card" data-op="-"><span class="op-icon purple">−</span><span>Subtraction</span><span class="radio"></span></button>
+      <button class="operation-card" data-op="*"><span class="op-icon green">×</span><span>Multiplication</span><span class="radio"></span></button>
+      <button class="operation-card" data-op="/"><span class="op-icon orange">÷</span><span>Division</span><span class="radio"></span></button>
+      <button class="operation-card" data-op="mixed"><span class="op-icon mix">±</span><span>Mixed</span><span class="radio"></span></button>
+    </div>
+    <button class="primary-btn" id="startBtn">Start Game <span>→</span></button>
+  </section>
+
+  <section class="screen" id="gameScreen">
+    <div class="game-meta">
+      <span class="pill level-pill" id="levelLabel">Level: Easy</span>
+      <span class="pill count-pill" id="questionCount">1/10</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="question-area">
+      <div class="question" id="questionText">14 + 7 =</div>
+      <div class="answer-box" id="answerPreview" aria-live="polite"></div>
+    </div>
+    <div class="keypad" id="keypad">
+      <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+      <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+      <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+      <button class="utility-key" data-key="clear">⌫</button><button data-key="0">0</button><button class="submit-key" data-key="submit">✓</button>
+    </div>
+    <div class="option-answers hidden" id="optionAnswers"></div>
+    <p class="feedback" id="feedback" aria-live="polite"></p>
+  </section>
+
+  <section class="screen" id="resultsScreen">
+    <div class="trophy" aria-hidden="true">🏆</div>
+    <h2 class="result-title">You completed <span>10 questions</span></h2>
+    <div class="stats-card">
+      <div class="stat-row"><span><i class="dot green-dot">✓</i>Correct</span><strong id="correctStat">0/10</strong></div>
+      <div class="stat-row"><span><i class="dot blue-dot">◎</i>Accuracy</span><strong id="accuracyStat">0%</strong></div>
+      <div class="stat-row"><span><i class="dot purple-dot">◷</i>Total time</span><strong id="totalTimeStat">0s</strong></div>
+      <div class="stat-row"><span><i class="dot blue-dot">◴</i>Average time / question</span><strong id="avgTimeStat">0.00s</strong></div>
+    </div>
+    <p class="result-message" id="resultMessage"></p>
+    <button class="primary-btn" id="playAgainBtn">↻ &nbsp; Play Again</button>
+    <button class="secondary-btn" id="homeBtn">⌂ &nbsp; Back to Home</button>
+  </section>
+
+  <section class="screen" id="settingsScreen">
+    <h2 class="settings-title">Settings</h2>
+    <div class="setting-card">
+      <div class="setting-heading"><span>🎨</span> Theme</div>
+      <div class="segmented"><button data-theme="light" class="selected">Light</button><button data-theme="dark">Dark</button></div>
+    </div>
+    <div class="setting-card">
+      <div class="setting-heading"><span>▦</span> Keyboard</div>
+      <div class="segmented"><button data-input="keypad" class="selected">Keypad</button><button data-input="options">Option</button></div>
+    </div>
+  </section>
+  <footer class="footer-note">Train your brain, one question at a time.</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
